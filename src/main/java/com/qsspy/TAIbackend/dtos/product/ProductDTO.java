@@ -13,6 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ProductDTO {
 
+    private String name;
 
     private float price;
 
@@ -24,7 +25,7 @@ public class ProductDTO {
 
     private String longDescription;
 
-    private Byte[] image;
+    private byte[] image;
 
     private Category category;
 }

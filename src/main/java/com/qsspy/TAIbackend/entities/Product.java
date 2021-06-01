@@ -19,6 +19,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column
+    private String name;
+
     @Column(nullable = false)
     private float price;
 
@@ -33,7 +36,7 @@ public class Product {
     private String longDescription;
 
     @Lob
-    private Byte[] image;
+    private byte[] image;
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
