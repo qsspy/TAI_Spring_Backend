@@ -1,11 +1,12 @@
 # TAI_Spring_Backend
 
-# Description
+## Description
+
 This is simple Spring Boot aplication, which generates REST API for frontend application.
 This app is part of final project of Internet Application Technologies subject.
 Shortly, it shares API for CRUD operations based on Product and Category Entities.
 
-# Technologies and Frameworks
+## Technologies and Frameworks
 
 * Spring Boot
 * Spring MVC
@@ -13,6 +14,7 @@ Shortly, it shares API for CRUD operations based on Product and Category Entitie
 * Lombok
 * MySQL
 
-# Deployment
+## Deployment
 
-This application will be deployed (probably) on Heroku near the end of summer semester.
+This application is deployed on Heroku.
+Link to simple api with guitar list : https://tai-backend.herokuapp.com/api/products
