@@ -35,9 +35,16 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<ProductIdentifiedDTO> getProducts() {
+    public List<ProductIdentifiedDTO> getProducts(Integer categoryId) {
 
-        return StreamSupport.stream(productRepository.findAll().spliterator(),false)
+        Iterable<Product> products;
+        if(categoryId != null) {
+            products = productRepository.findByCategoryId(categoryId);
+        } else {
+            products = productRepository.findAll();
+        }
+
+        return StreamSupport.stream(products.spliterator(),false)
                 .map(product -> modelMapper.map(product,ProductIdentifiedDTO.class)).collect(Collectors.toList());
     }
 

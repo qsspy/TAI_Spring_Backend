@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 import java.io.File;
 import java.io.IOException;
@@ -52,14 +54,14 @@ public class TaiBackendApplication {
 			ProductDTO product = new ProductDTO();
 			product.setCategory(category);
 			product.setDiscountPercent(i/10.0f);
-			product.setPrice(i*100);
+			product.setPrice((i+1)*100);
 			product.setVat(0.23f);
 			product.setName("Gitara ST " + i);
 			product.setShortDescription("This is TOP " + (i+1) +  " Stratocaster!");
 			product.setLongDescription("This is basic long description!");
 
-			File image = new File("src\\main\\resources\\static\\images\\strat\\strat" + (i+1) + ".jpg");
-			product.setImage(Files.readAllBytes(image.toPath()));
+			Resource image = new ClassPathResource("/static/images/strat/strat" + (i+1) + ".jpg");
+			product.setImage(image.getInputStream().readAllBytes());
 
 			productDTOS.add(product);
 		}
@@ -70,14 +72,14 @@ public class TaiBackendApplication {
 			ProductDTO product = new ProductDTO();
 			product.setCategory(category);
 			product.setDiscountPercent(i/10.0f);
-			product.setPrice(i*100);
+			product.setPrice((i+1)*100);
 			product.setVat(0.23f);
 			product.setName("Gitara T " + i);
 			product.setShortDescription("This is TOP " + (i+1) +  " Telecaster!");
 			product.setLongDescription("This is basic long description!");
 
-			File image = new File("src\\main\\resources\\static\\images\\tele\\tele" + (i+1) + ".jpg");
-			product.setImage(Files.readAllBytes(image.toPath()));
+			Resource image = new ClassPathResource("/static/images/tele/tele" + (i+1) + ".jpg");
+			product.setImage(image.getInputStream().readAllBytes());
 
 			productDTOS.add(product);
 		}
@@ -88,14 +90,14 @@ public class TaiBackendApplication {
 			ProductDTO product = new ProductDTO();
 			product.setCategory(category);
 			product.setDiscountPercent(i/10.0f);
-			product.setPrice(i*100);
+			product.setPrice((i+1)*100);
 			product.setVat(0.23f);
 			product.setName("Gitara HB " + i);
 			product.setShortDescription("This is TOP " + (i+1) +  " Hollow Body!");
 			product.setLongDescription("This is basic long description!");
 
-			File image = new File("src\\main\\resources\\static\\images\\hollow\\hollow" + (i+1) + ".jpg");
-			product.setImage(Files.readAllBytes(image.toPath()));
+			Resource image = new ClassPathResource("/static/images/hollow/hollow" + (i+1) + ".jpg");
+			product.setImage(image.getInputStream().readAllBytes());
 
 			productDTOS.add(product);
 		}
@@ -106,14 +108,14 @@ public class TaiBackendApplication {
 			ProductDTO product = new ProductDTO();
 			product.setCategory(category);
 			product.setDiscountPercent(i/10.0f);
-			product.setPrice(i*100);
+			product.setPrice((i+1)*100);
 			product.setVat(0.23f);
 			product.setName("Gitara SC " + i);
 			product.setShortDescription("This is TOP " + (i+1) +  " Single Cut!");
 			product.setLongDescription("This is basic long description!");
 
-			File image = new File("src\\main\\resources\\static\\images\\single\\single" + (i+1) + ".jpg");
-			product.setImage(Files.readAllBytes(image.toPath()));
+			Resource image = new ClassPathResource("/static/images/single/single" + (i+1) + ".jpg");
+			product.setImage(image.getInputStream().readAllBytes());
 
 			productDTOS.add(product);
 		}

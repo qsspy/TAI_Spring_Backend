@@ -10,7 +10,7 @@ import java.util.List;
 public interface ProductService {
 
     ProductDTO getProduct(long id) throws Exception;
-    List<ProductIdentifiedDTO> getProducts();
+    List<ProductIdentifiedDTO> getProducts(Integer categoryId);
     void addProduct(ProductDTO product);
     void editProduct(ProductIdentifiedDTO product) throws Exception;
     void deleteProduct(long id);
