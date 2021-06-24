@@ -35,26 +35,26 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity addProduct(
+    public ResponseEntity<?> addProduct(
             @RequestBody ProductDTO productDTO
     ) {
         productService.addProduct(productDTO);
-        return new ResponseEntity(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity editProduct(
+    public ResponseEntity<?> editProduct(
             @RequestBody ProductIdentifiedDTO productIdentifiedDTO
     ) throws Exception {
         productService.editProduct(productIdentifiedDTO);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{productId}")
-    public ResponseEntity deleteCategory(
+    public ResponseEntity<?> deleteCategory(
             @PathVariable int productId
     ) {
         productService.deleteProduct(productId);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

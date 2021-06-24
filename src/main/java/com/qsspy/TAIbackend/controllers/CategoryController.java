@@ -29,30 +29,30 @@ public class CategoryController {
     @GetMapping
     public ResponseEntity<List<CategoryIdentifiedDTO>> getCategories() {
 
-        return new ResponseEntity<>(categoryService.getCategories(),HttpStatus.OK);
+        return new ResponseEntity<>(categoryService.getCategories(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity addCategory(
+    public ResponseEntity<?> addCategory(
             @RequestBody CategoryDTO categoryDTO
     ) {
         categoryService.addCategory(categoryDTO);
-        return new ResponseEntity(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity editCategory(
+    public ResponseEntity<?> editCategory(
             @RequestBody CategoryIdentifiedDTO categoryIdentifiedDTO
     ) throws Exception {
         categoryService.editCategory(categoryIdentifiedDTO);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{categoryId}")
-    public ResponseEntity deleteCategory(
+    public ResponseEntity<?> deleteCategory(
             @PathVariable int categoryId
     ) {
         categoryService.deleteCategory(categoryId);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -24,13 +24,10 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public ProductDTO getProduct(long id) throws Exception {
+    public ProductDTO getProduct(long id){
 
         Optional<Product> product = productRepository.findById(id);
-        if(product.isEmpty()) {
-            throw new Exception("Product with id " + id + " does not exist.");
-        }
-
+        product.orElseThrow(()->new RuntimeException("Product with id " + id + " does not exist."));
         return modelMapper.map(product.get(),ProductDTO.class);
     }
 
@@ -38,6 +35,7 @@ public class ProductServiceImpl implements ProductService{
     public List<ProductIdentifiedDTO> getProducts(Integer categoryId) {
 
         Iterable<Product> products;
+
         if(categoryId != null) {
             products = productRepository.findByCategoryId(categoryId);
         } else {
@@ -56,12 +54,10 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public void editProduct(ProductIdentifiedDTO productDTO) throws Exception {
+    public void editProduct(ProductIdentifiedDTO productDTO){
 
         Optional<Product> product = productRepository.findById(productDTO.getId());
-        if(product.isEmpty()) {
-            throw new Exception("User with this id doesn't exist.");
-        }
+        product.orElseThrow(()-> new RuntimeException("User with this id doesn't exist."));
 
         productRepository.save(modelMapper.map(productDTO,Product.class));
     }
